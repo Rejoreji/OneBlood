@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OneBlood">
-        <activity android:name=".Registration"></activity>
-        <activity android:name=".Home" />
+        <activity android:name=".Profile"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Search"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Registration"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Home"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
