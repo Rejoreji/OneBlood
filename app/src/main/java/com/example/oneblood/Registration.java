@@ -30,6 +30,7 @@ public class Registration extends AppCompatActivity {
         signin=(TextView)findViewById(R.id.signin);
         DB=new DBHelper(this);
 
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +62,14 @@ public class Registration extends AppCompatActivity {
                     }
                 }
 
+            }
+        });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
             }
         });
     }

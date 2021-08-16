@@ -78,12 +78,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Blood Group"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 android:layout_below="@+id/age"/>
-
-
-
 
             <Spinner
                 android:id="@+id/bloodtype"
@@ -91,10 +90,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textBlood"
                 android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:autofillHints="Blood Group"
-                android:padding="30dp"
-
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="25dp"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
