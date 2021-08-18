@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -23,6 +26,7 @@ public class Home extends AppCompatActivity {
     TextView text;
     ListView listView;
     ArrayList<RequestConstructor> arrayList;
+    ImageView icon;
 
     private BottomNavigationView bottomNavigationView;
     MyAdapter myAdapter;
@@ -33,9 +37,12 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         listView =(ListView) findViewById(R.id.listview);
         text=(TextView)findViewById(R.id.text1);
+        icon=(ImageView)findViewById(R.id.icon);
+
         arrayList = new ArrayList<>();
 
         String namefromintent = getIntent().getStringExtra("phone");
+
         text.setText(" Welcome "+namefromintent);
 
         DB = new DBHelper(this);
@@ -50,11 +57,13 @@ public class Home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.search:
+                        String namefromintent = getIntent().getStringExtra("phone");
                         startActivity(new Intent(getApplicationContext(),Search.class));
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.profile:
+
                         startActivity(new Intent(getApplicationContext(),Profile.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -64,6 +73,18 @@ public class Home extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(Home.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -78,4 +99,6 @@ public class Home extends AppCompatActivity {
 
 
     }
+
+
 }

@@ -5,24 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home">
+    <include layout="@layout/toolbar">
 
-    <com.google.android.material.appbar.AppBarLayout
+    </include>
+
+<!--<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/topNav">
+
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topNav">
+        android:layout_height="?attr/actionBarSize"
+        app:title="Home"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_baseline_exit_to_app_24"
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Home"
-            app:titleTextColor="@color/white"
-            android:background="#e63946"/>
-    </com.google.android.material.appbar.AppBarLayout>
+        android:background="#e63946"/>
+</com.google.android.material.appbar.AppBarLayout>-->
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav"
+        android:layout_marginTop="60dp"
         android:layout_below="@+id/topNav">
 
             <LinearLayout
@@ -38,6 +45,15 @@
                     android:text="name"
                     android:textColor="#000000"
                     android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_margin="20dp"
+                    android:text="People Who Need Blood"
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
 
                 <ListView
                     android:id="@+id/listview"

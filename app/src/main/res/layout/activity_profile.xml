@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Profile"
-            app:navigationIcon="@drawable/ic_baseline_exit_to_app_24"
             app:titleTextColor="@color/white"
             android:background="#e63946"/>
     </com.google.android.material.appbar.AppBarLayout>
@@ -36,23 +35,58 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="My Profile"
                 android:textColor="#000000"
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/name1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Name" />
-
-            <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="Full Name"
+                android:textSize="20sp"
+                android:layout_margin="10sp"/>
 
-                android:text="Name" />
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:text="Age"
+                android:textSize="20sp"
+                android:layout_margin="10sp"/>
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Address"
+                android:textSize="20sp"
+                android:layout_margin="10sp"/>
+
+            <TextView
+                android:id="@+id/name3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="Blood Group"
+                android:layout_margin="10sp"/>
+            <TextView
+                android:id="@+id/name4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Phone Number"
+                android:textSize="20sp"
+                android:layout_margin="10sp"/>
+
+            <TextView
+                android:id="@+id/name5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="Email id"
+                android:layout_margin="10sp"/>
 
 
         </LinearLayout>

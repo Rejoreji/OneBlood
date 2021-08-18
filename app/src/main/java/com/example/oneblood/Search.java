@@ -82,6 +82,7 @@ public class Search extends AppCompatActivity {
 
         //ListView in Search
 
+
         listView =(ListView)findViewById(R.id.donorListView);
         arrayList = new ArrayList<>();
 
@@ -138,6 +139,7 @@ public class Search extends AppCompatActivity {
                         return true;
 
                     case R.id.home:
+                        String namefromintent = getIntent().getStringExtra("phone");
                         startActivity(new Intent(getApplicationContext(),Home.class));
                         overridePendingTransition(0,0);
 

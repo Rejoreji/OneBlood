@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#e63946">
+    android:background="#e63946"
+    android:id="@+id/toolbar">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/icon"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:layout_margin="5dp"
-            android:layout_centerVertical="true"/>
+
         
         <TextView
             android:layout_width="wrap_content"
@@ -23,10 +19,16 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginLeft="16dp"
-            android:layout_toRightOf="@+id/icon"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/icon"
             android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="350dp"
+            android:src="@drawable/ic_baseline_exit_to_app_24"
+            app:tint="@color/black" />
     </RelativeLayout>
 
 </RelativeLayout>
