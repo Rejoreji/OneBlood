@@ -61,8 +61,6 @@ public class MyAdapter  extends BaseAdapter {
             date.setText(requestConstructor.getDate());
 
 
-
-
         }
         return convertView;
 

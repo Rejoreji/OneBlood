@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Search extends AppCompatActivity {
@@ -28,6 +31,9 @@ public class Search extends AppCompatActivity {
     TextInputLayout inputName, inputAge,inputAddress, inputPhone;
     Button inputButton;
     DBHelper DB;
+    ListView listView;
+    ArrayList<UserConstructor> arrayList;
+    DonorAdapter donorAdapter;
 
 
 
@@ -73,6 +79,15 @@ public class Search extends AppCompatActivity {
                 }
             }
         });
+
+        //ListView in Search
+
+        listView =(ListView)findViewById(R.id.donorListView);
+        arrayList = new ArrayList<>();
+
+        loadDataInListView();
+        
+
 
 
 
@@ -135,6 +150,14 @@ public class Search extends AppCompatActivity {
 
 
 
+    }
+
+    private void loadDataInListView() {
+
+        arrayList=DB.getDonorData();
+
+        donorAdapter= new DonorAdapter(this,arrayList);
+        listView.setAdapter(donorAdapter);
     }
 
 }

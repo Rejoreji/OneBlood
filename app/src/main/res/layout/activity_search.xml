@@ -178,6 +178,11 @@
 
                 />
 
+            <ListView
+                android:id="@+id/donorListView"
+                android:layout_width="match_parent"
+                android:layout_height="586dp"
+                android:dividerHeight="1dp" />
 
 
         </LinearLayout>

@@ -144,4 +144,23 @@ public class DBHelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    public ArrayList<UserConstructor>getDonorData(){
+        ArrayList<UserConstructor> arrayList = new ArrayList<>();
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        Cursor cursor = MyDB.rawQuery("SELECT * FROM "+CUSTOMER_DATA+ " WHERE donor IN (true) ",null);
+
+        while (cursor.moveToNext()){
+            String fullName = cursor.getString(0);
+            int age = cursor.getInt(1);
+            String bloodgroup = cursor.getString(2);
+            String address = cursor.getString(4);
+            String phone = cursor.getString(5);
+
+            UserConstructor userConstructor = new UserConstructor(fullName, bloodgroup, address, phone,age);
+            arrayList.add(userConstructor);
+
+        }
+        return arrayList;
+    }
+
 }
