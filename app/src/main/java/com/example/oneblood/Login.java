@@ -1,7 +1,5 @@
 package com.example.oneblood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +8,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Login extends AppCompatActivity {
 
-    EditText phone,password;
+
+
+    EditText phone, password;
     Button login;
     TextView signup;
     DBHelper DB;
+    private Object ArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +37,15 @@ public class Login extends AppCompatActivity {
                 String user = phone.getText().toString();
                 String pass = password.getText().toString();
 
+
                 if (user.equals("")||pass.equals(""))
                     Toast.makeText(Login.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
                 else {
-                    Boolean checkuserpass = DB.checkusernamepassword(user,pass);
+                    Boolean checkuserpass = DB.checkUserandPassword(user,pass);
                     if (checkuserpass == true){
                         Toast.makeText(Login.this, "Sign in Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),Home.class);
+                        intent.putExtra("phone",phone.getText().toString().trim());
                         startActivity(intent);
                     }else{
                         Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
@@ -56,5 +61,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

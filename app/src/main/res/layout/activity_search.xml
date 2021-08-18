@@ -89,12 +89,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textBlood"
-                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:padding="25dp"
-                />
+                android:layout_weight="1"
+                android:entries="@array/blood_type"
+                android:padding="15dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/address"

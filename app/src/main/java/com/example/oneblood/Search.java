@@ -1,29 +1,22 @@
 package com.example.oneblood;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 public class Search extends AppCompatActivity {
@@ -55,28 +48,27 @@ public class Search extends AppCompatActivity {
         inputButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = inputName.getEditText().getText().toString();
-                String age = inputAge.getEditText().getText().toString();
-                String blood = inputBGroup.getSelectedItem().toString();
-                String homeaddress = inputAddress.getEditText().getText().toString();
-                String telphone = inputPhone.getEditText().getText().toString();
-                String  date =inputDate.getText().toString();
 
-                if (name.equals("")||age.equals("")||blood.equals("")|| homeaddress.equals("")|| telphone.equals("")||date.equals("")){
+                RequestConstructor requestConstructor = new RequestConstructor();
+
+                if (inputName.equals("") || inputAge.equals("") || inputBGroup.equals("") || inputAddress.equals("") || inputPhone.equals("") || inputDate.equals("")) {
                     Toast.makeText(Search.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
 
-                        Boolean insert =DB.onInsertRequest(name,age,blood,homeaddress,telphone,date);
+                    try {
+                        requestConstructor = new RequestConstructor(-1, inputName.getEditText().getText().toString(),
+                                inputBGroup.getSelectedItem().toString(), inputAddress.getEditText().getText().toString(),
+                                inputPhone.getEditText().getText().toString(), inputDate.getText().toString(),
+                                Integer.parseInt(inputAge.getEditText().getText().toString()));
+                    } catch (Exception e) {
+                        Toast.makeText(Search.this, "Error" + e, Toast.LENGTH_SHORT).show();
 
-                        if(insert == true){
-                            Toast.makeText(Search.this, "Successfully posted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),Home.class);
-                            startActivity(intent);
-                        }
-                        else{
-                            Toast.makeText(Search.this, "Request Failed", Toast.LENGTH_SHORT).show();
-                        }
+                    }
+                    DBHelper DB = new DBHelper(Search.this);
+                    Boolean success = DB.onInsertRequest(requestConstructor);
+                    Toast.makeText(Search.this, "Successfully Posted", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), Search.class);
+                    startActivity(intent);
 
                 }
             }
@@ -112,13 +104,6 @@ public class Search extends AppCompatActivity {
 
 
         spinnerBlood=(Spinner)findViewById(R.id.bloodtype);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.blood_type, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerBlood.setAdapter(adapter);
-
-
-
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);

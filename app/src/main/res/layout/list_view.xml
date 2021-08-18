@@ -2,39 +2,166 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="12dp"
+    android:paddingBottom="12dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-        <LinearLayout
+        android:orientation="horizontal">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Name "
+            android:textColor="#000000"
+            android:textSize="32sp" />
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listviewName"
+            android:text="Name"
+            android:textSize="32sp"/>
 
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-            <LinearLayout
+        <LinearLayout
+            android:id="@+id/linearBgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:fontFamily="@font/poppins_regular"
+                android:text="Blood Group "
+                android:textColor="#000000"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/listBlood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blood group"
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/linearBgroup">
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Age "
+                android:textColor="#000000"
+                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/listAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Age"
+                    android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearAddress"
+            android:layout_below="@+id/linearAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Address "
+                android:textColor="#000000"
+                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/listAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:layout_below="@+id/listAge"
+                    android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearPhone"
+            android:layout_below="@+id/linearAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Phone Number "
+                android:textColor="#000000"
+                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/listPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:layout_below="@+id/listAddress"
+                    android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearDate"
+            android:layout_below="@+id/linearPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Required Before"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/listDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:layout_below="@+id/listPhone"
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearId"
+            android:layout_below="@+id/linearDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="invisible">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="id"
+                    android:textSize="18sp"/>
 
-
-
-            </LinearLayout>
-
+                <TextView
+                    android:id="@+id/listId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id"
+                    android:layout_below="@+id/listDate"
+                    android:textSize="18sp"/>
         </LinearLayout>
 
-
-
     </RelativeLayout>
-
 
 </LinearLayout>

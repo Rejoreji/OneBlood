@@ -1,9 +1,5 @@
 package com.example.oneblood;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,7 +7,12 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,33 +20,27 @@ import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
     DBHelper DB;
+    TextView text;
+    ListView listView;
+    ArrayList<RequestConstructor> arrayList;
 
     private BottomNavigationView bottomNavigationView;
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        listView =(ListView) findViewById(R.id.listview);
+        text=(TextView)findViewById(R.id.text1);
+        arrayList = new ArrayList<>();
 
-        ListView listView =(ListView) findViewById(R.id.listview);
+        String namefromintent = getIntent().getStringExtra("phone");
+        text.setText(" Welcome "+namefromintent);
+
         DB = new DBHelper(this);
 
-        ArrayList<String> list = new ArrayList<>();
-        Cursor cursor = DB.getdata();
-
-
-        if(cursor.getCount() == 0){
-            Toast.makeText(Home.this, "Nothing existed!", Toast.LENGTH_SHORT).show();
-
-        }else{
-            while (cursor.moveToNext()) {
-                list.add("Name: "+cursor.getString(0)+"\n"+"Age:"+cursor.getString(1)+"\n"+"Blood Type:" +cursor.getString(2)+"\n"+"Address:" +cursor.getString(3)+"\n"+"Contact Number:" +cursor.getString(4)+"\n"+"Needed Before:" +cursor.getString(5));
-                ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,list);
-                listView.setAdapter(listAdapter);
-            }
-        }
-
-
+        loadDataInListView();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -71,6 +66,16 @@ public class Home extends AppCompatActivity {
                 return false;
             }
         });
+
+    }
+
+    private void loadDataInListView() {
+
+        arrayList=DB.getAllData();
+
+        myAdapter= new MyAdapter(this,arrayList);
+        listView.setAdapter(myAdapter);
+
 
     }
 }
