@@ -42,11 +42,11 @@ public class DonorAdapter  extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_view_donor, null);
 
 
-            TextView name = (TextView) convertView.findViewById(R.id.listviewDonorName);
-            TextView age = (TextView) convertView.findViewById(R.id.listDonorAge);
-            TextView bloodGroup = (TextView) convertView.findViewById(R.id.listDonorBlood);
-            TextView address = (TextView) convertView.findViewById(R.id.listDonorAddress);
-            TextView phone = (TextView) convertView.findViewById(R.id.listDonorPhone);
+            TextView name = convertView.findViewById(R.id.listviewDonorName);
+            TextView age = convertView.findViewById(R.id.listDonorAge);
+            TextView bloodGroup = convertView.findViewById(R.id.listDonorBlood);
+            TextView address = convertView.findViewById(R.id.listDonorAddress);
+            TextView phone = convertView.findViewById(R.id.listDonorPhone);
 
 
             UserConstructor userConstructor = arrayList.get(position);

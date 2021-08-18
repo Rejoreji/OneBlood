@@ -27,17 +27,17 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
 
-        fullname = (EditText) findViewById(R.id.fullname);
-        age = (EditText) findViewById(R.id.age);
-        bloodGroup = (Spinner) findViewById(R.id.regbloodtype);
-        mail = (EditText) findViewById(R.id.email);
-        address = (EditText) findViewById(R.id.address);
-        phone = (EditText) findViewById(R.id.phonenumber);
-        password = (EditText) findViewById(R.id.password);
-        check = (CheckBox) findViewById(R.id.checkBox);
+        fullname =  findViewById(R.id.fullname);
+        age = findViewById(R.id.age);
+        bloodGroup = findViewById(R.id.regbloodtype);
+        mail =  findViewById(R.id.email);
+        address =  findViewById(R.id.address);
+        phone =  findViewById(R.id.phonenumber);
+        password =  findViewById(R.id.password);
+        check =  findViewById(R.id.checkBox);
 
-        signup = (Button) findViewById(R.id.btnregister);
-        signin = (TextView) findViewById(R.id.signin);
+        signup =  findViewById(R.id.btnregister);
+        signin =  findViewById(R.id.signin);
         DB = new DBHelper(Registration.this);
 
 
@@ -75,8 +75,6 @@ public class Registration extends AppCompatActivity {
 
                     }
                 }
-
-
             }
 
 

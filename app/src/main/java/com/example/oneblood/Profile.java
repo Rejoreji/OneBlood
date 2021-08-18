@@ -19,7 +19,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        name = (TextView) findViewById(R.id.name1);
+        name = findViewById(R.id.name1);
         String namefromintent = getIntent().getStringExtra("phone");
         name.setText(namefromintent);
 

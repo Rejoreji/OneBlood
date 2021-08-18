@@ -42,13 +42,13 @@ public class MyAdapter  extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_view, null);
 
-            TextView id=(TextView)convertView.findViewById(R.id.listId);
-            TextView name = (TextView) convertView.findViewById(R.id.listviewName);
-            TextView age = (TextView) convertView.findViewById(R.id.listAge);
-            TextView bloodGroup = (TextView) convertView.findViewById(R.id.listBlood);
-            TextView address = (TextView) convertView.findViewById(R.id.listAddress);
-            TextView phone = (TextView) convertView.findViewById(R.id.listPhone);
-            TextView date = (TextView) convertView.findViewById(R.id.listDate);
+            TextView id=convertView.findViewById(R.id.listId);
+            TextView name =  convertView.findViewById(R.id.listviewName);
+            TextView age =  convertView.findViewById(R.id.listAge);
+            TextView bloodGroup =  convertView.findViewById(R.id.listBlood);
+            TextView address =  convertView.findViewById(R.id.listAddress);
+            TextView phone =  convertView.findViewById(R.id.listPhone);
+            TextView date =  convertView.findViewById(R.id.listDate);
 
             RequestConstructor requestConstructor = arrayList.get(position);
 

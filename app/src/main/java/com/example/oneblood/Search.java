@@ -42,13 +42,13 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        inputName =(TextInputLayout)findViewById(R.id.name);
-        inputAge =(TextInputLayout)findViewById(R.id.age);
-        inputBGroup=(Spinner)findViewById(R.id.bloodtype);
-        inputAddress=(TextInputLayout)findViewById(R.id.address);
-        inputPhone=(TextInputLayout)findViewById(R.id.phonenumber);
-        inputDate=(EditText)findViewById(R.id.date);
-        inputButton=(Button)findViewById(R.id.btnpost);
+        inputName = findViewById(R.id.name);
+        inputAge = findViewById(R.id.age);
+        inputBGroup= findViewById(R.id.bloodtype);
+        inputAddress= findViewById(R.id.address);
+        inputPhone= findViewById(R.id.phonenumber);
+        inputDate= findViewById(R.id.date);
+        inputButton= findViewById(R.id.btnpost);
         DB=new DBHelper(this);
 
         inputButton.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class Search extends AppCompatActivity {
         //ListView in Search
 
 
-        listView =(ListView)findViewById(R.id.donorListView);
+        listView =findViewById(R.id.donorListView);
         arrayList = new ArrayList<>();
 
         loadDataInListView();
@@ -92,7 +92,7 @@ public class Search extends AppCompatActivity {
 
 
 
-        cal =(EditText) findViewById(R.id.date);
+        cal = findViewById(R.id.date);
         currentDate = Calendar.getInstance();
         day = currentDate.get(Calendar.DAY_OF_MONTH);
         month = currentDate.get(Calendar.MONTH);
@@ -119,7 +119,7 @@ public class Search extends AppCompatActivity {
 
 
 
-        spinnerBlood=(Spinner)findViewById(R.id.bloodtype);
+        spinnerBlood= findViewById(R.id.bloodtype);
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);

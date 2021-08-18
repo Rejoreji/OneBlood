@@ -35,9 +35,9 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        listView =(ListView) findViewById(R.id.listview);
-        text=(TextView)findViewById(R.id.text1);
-        icon=(ImageView)findViewById(R.id.icon);
+        listView = findViewById(R.id.listview);
+        text=findViewById(R.id.text1);
+        icon=findViewById(R.id.icon);
 
         arrayList = new ArrayList<>();
 

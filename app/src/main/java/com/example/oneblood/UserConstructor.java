@@ -12,9 +12,7 @@ public class UserConstructor {
     public UserConstructor(String fullName, String bloodgroup, String address, String phone, int age) {
 
         this.fullName = fullName;
-
         this.bloodgroup = bloodgroup;
-
         this.address = address;
         this.phone = phone;
         this.age = age;
